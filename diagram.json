@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Diana Estefania Alvarez Males, Maria Gladys Chindoy Chindoy",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -4.76, "attrs": {} },
+    {
+      "type": "chip-a7670sa",
+      "id": "modem",
+      "top": 49.02,
+      "left": 225.6,
+      "attrs": { "latitude": "1.2136", "longitude": "-77.2811" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnSOS",
+      "top": 220,
+      "left": -170,
+      "attrs": { "color": "red", "label": "SOS" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "motor",
+      "top": -90,
+      "left": -150,
+      "attrs": { "color": "orange", "label": "Vibrador" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 10,
+      "left": -160,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledRed",
+      "top": -90,
+      "left": -80,
+      "attrs": { "color": "green", "label": "Red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 10,
+      "left": -90,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:17", "modem:RX", "green", [] ],
+    [ "esp:16", "modem:TX", "blue", [] ],
+    [ "modem:VCC", "esp:3V3", "red", [] ],
+    [ "modem:GND", "esp:GND.2", "black", [] ],
+    [ "btnSOS:1.l", "esp:4", "green", [] ],
+    [ "btnSOS:2.l", "esp:GND.1", "black", [] ],
+    [ "esp:25", "r1:2", "orange", [] ],
+    [ "r1:1", "motor:A", "orange", [] ],
+    [ "motor:C", "esp:GND.1", "black", [] ],
+    [ "esp:26", "r2:2", "green", [] ],
+    [ "r2:1", "ledRed:A", "green", [] ],
+    [ "ledRed:C", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

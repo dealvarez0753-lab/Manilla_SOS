@@ -1,0 +1,31 @@
+{
+  "name": "A7670SA (emulado)",
+  "author": "Diana Estefania Alvarez Males, Maria Gladys Chindoy Chindoy",
+  "pins": ["VCC", "GND", "TX", "RX"],
+  "controls": [
+    {
+      "id": "signalQuality",
+      "label": "Senal celular CSQ (0 = sin red)",
+      "type": "range",
+      "min": 0,
+      "max": 31,
+      "step": 1
+    },
+    {
+      "id": "gnssFix",
+      "label": "GNSS con posicion (0 = bajo techo)",
+      "type": "range",
+      "min": 0,
+      "max": 1,
+      "step": 1
+    },
+    {
+      "id": "networkDelayMs",
+      "label": "Demora de red SMS (ms)",
+      "type": "range",
+      "min": 200,
+      "max": 5000,
+      "step": 100
+    }
+  ]
+}
